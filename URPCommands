@@ -1,0 +1,85 @@
+event onLoad(){
+    server.log("---------------------------------------");
+    server.log("------------[URPCommands]--------------");
+    server.log("--------[Successfully Loaded]----------");
+    server.log("-----------[By: Vic Zack]--------------");
+    server.log("----------[Version: 2.0.0]-------------");
+    server.log("---------------------------------------");
+}
+
+command me(message) {
+    permission = "roleplay.me";
+    allowedCaller = "player";
+    execute() {
+        if (arguments.count < 1) {
+            player.message("<color=red>Uso Correcto:</color> /me <acción>");
+            return;
+        }
+
+        playerPosition = player.position;
+
+        foreach (p in server.players) {
+            if (p.position.distance(playerPosition) <= 20) {
+                p.message("<color=purple>[ME]</color> <color=yellow>" + player.name + ":</color> <color=white>*" + message + "*");
+            }
+        }
+    }
+}
+
+command do(message) {
+    permission = "roleplay.do";
+    allowedCaller = "player";
+    execute() {
+        if (arguments.count < 1) {
+            player.message("<color=red>Uso Correcto:</color> /do <acción>");
+            return;
+        }
+
+        playerPosition = player.position;
+
+        foreach (p in server.players) {
+            if (p.position.distance(playerPosition) <= 20) {
+                p.message("<color=orange>[DO]</color> <color=yellow>" + player.name + ":</color> <i> <color=white>*" + message + "*");
+            }
+        }
+    }
+}
+
+command ooc(message) {
+    permission = "roleplay.ooc";
+    allowedCaller = "player";
+    execute() {
+        if (arguments.count < 1) {
+            player.message("<color=red>Uso Correcto:</color> /ooc <mensaje>");
+            return;
+        }
+
+        broadcast("<color=red>[OOC]</color> <color=white>" + player.name + ": " + message);
+    }
+}
+
+command tweet(message) {
+    permission = "roleplay.tweet";
+    allowedCaller = "player";
+    execute() {
+        if (arguments.count < 1) {
+            player.message("<color=red>Uso Correcto:</color> /tweet <mensaje>");
+            return;
+        }
+
+        broadcast("<color=#0bc2c5>[TWEET]</color> <color=white>@"+ player.name +": " + message);
+    }
+}
+
+command anon(message) {
+    permission = "roleplay.anon";
+    allowedCaller = "player";
+    execute() {
+        if (arguments.count < 1) {
+            player.message("<color=red>Uso Correcto:</color> /anon <mensaje>");
+            return;
+        }
+
+        broadcast("<color=black>[ANON]</color> <color=white>" + message);
+    }
+}
