@@ -1,6 +1,6 @@
 event onLoad(){
     server.log("---------------------------------------");
-    server.log("------------[URPCommands]--------------");
+    server.log("----------[VZ_URPCommands]-------------");
     server.log("--------[Successfully Loaded]----------");
     server.log("-----------[By: Vic Zack]--------------");
     server.log("----------[Version: 2.0.0]-------------");
